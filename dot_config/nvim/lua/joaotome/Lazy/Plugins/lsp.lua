@@ -21,6 +21,7 @@ return {
 						lsp_fallback = true
 					},
 					formatters_by_ft = {
+						csharp = { 'csharpier' },
 						lua = { 'stylua' },
 						go = { 'goimports-reviser', 'gofumpt' },
 						-- Use a sub-list to run only the first available formatter
