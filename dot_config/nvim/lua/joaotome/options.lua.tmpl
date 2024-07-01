@@ -31,7 +31,12 @@ opt.smartindent = true
 
 opt.swapfile = false
 opt.backup = false
+{{- if eq .chezmoi.os "windows"}}
+opt.undodir = os.getenv("HOMEPATH") .. "/.vim.undodir"
+{{- end}}
+{{- if eq .chezmoi.os "linux"}}
 opt.undodir = os.getenv("HOME") .. "/.vim.undodir"
+{{- end}}
 opt.undofile = true
 
 opt.scrolloff = 8
