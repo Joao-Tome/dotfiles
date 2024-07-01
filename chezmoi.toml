@@ -1,0 +1,5 @@
+[data]
+	weztermPictures = "C:\Users\joaop\OneDrive\Imagens\Wezterm"
+[edit]
+    command = "code"
+    args = ["--wait"]
