@@ -87,7 +87,15 @@ return {
 						require 'lspconfig'.jsonls.setup {
 							capabilities = capabilities,
 						}
+					end,
+					["tsserver"] = function()
+						require('lspconfig').tsserver.setup({
+							on_attach = function(client, bufnr)
+								require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+							end
+						})
 					end
+
 				}
 			}
 
@@ -95,7 +103,10 @@ return {
 				"LspAttach",
 				{
 					group = vim.api.nvim_create_augroup("lsp-attatch", { clear = true }),
-					callback = function()
+					callback = function(args)
+						local client = vim.lsp.get_client_by_id(args.data.client_id)
+						local bufnr = args.buf
+						require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
 						vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 						vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions)
 						vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references)
@@ -128,7 +139,7 @@ return {
 							["<C-f>"] = cmp.mapping.scroll_docs(4),
 							["<C-Space>"] = cmp.mapping.complete(),
 							["<C-e>"] = cmp.mapping.abort(),
-							["<Tab>"] = cmp.mapping.confirm({ select = true }) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+							["<C-y>"] = cmp.mapping.confirm({ select = true }) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 						}
 					),
 					sources = cmp.config.sources(
