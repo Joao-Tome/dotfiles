@@ -39,6 +39,10 @@ opt.undodir = os.getenv("HOME") .. "/.vim.undodir"
 {{- end}}
 opt.undofile = true
 
+{{- if eq .chezmoi.os "windows"}}
+vim.g.sqlite_clib_path = "C:\\Users\\joaop\\sqlite\\sqlite3.dll"
+{{- end}}
+
 opt.scrolloff = 8
 opt.signcolumn = "yes"
 
