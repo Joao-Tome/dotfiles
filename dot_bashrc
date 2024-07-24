@@ -129,3 +129,5 @@ export PATH="$PATH:/usr/local/netcoredbg"
 
 export EDITOR="/home/linuxbrew/.linuxbrew/bin/nvim"
 export PATH="$PATH:/home/joaotome/.dotnet/tools"
+
+fastfetch
