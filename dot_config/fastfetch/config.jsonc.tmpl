@@ -3,7 +3,12 @@
 	"logo": {
 		"type": "kitty-direct",
 		// "source": "$(ls ~/.config/fastfetch/logos/*.png | shuf -n 1)",
+{{- if eq .chezmoi.os "linux"}}
 		"source": "~/.config/fastfetch/logos/miku.png",
+{{- end}}
+{{- if eq .chezmoi.os "windows"}}
+		"source": "C:/users/joaop/.config/fastfetch/logos/miku.png",
+{{- end}}
 		"width": 60,
 		"height": 30,
 		"padding": {
