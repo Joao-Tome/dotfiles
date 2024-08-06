@@ -17,7 +17,7 @@ return {
 				opts = {
 					notify_on_error = false,
 					format_on_save = {
-						timeout_ms = 500,
+						timeout_ms = 5000,
 						lsp_fallback = true
 					},
 					formatters_by_ft = {
@@ -30,7 +30,7 @@ return {
 					}
 				}
 
-			}
+			},
 		},
 		config = function()
 			require("fidget").setup()
@@ -38,7 +38,7 @@ return {
 			require("mason-lspconfig").setup {
 				ensure_installed = {
 					"lua_ls",
-					"tsserver",
+					-- "tsserver",
 					"rust_analyzer",
 					"gopls",
 					'jsonls',
@@ -88,13 +88,13 @@ return {
 							capabilities = capabilities,
 						}
 					end,
-					["tsserver"] = function()
-						require('lspconfig').tsserver.setup({
-							on_attach = function(client, bufnr)
-								require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
-							end
-						})
-					end
+					-- ["tsserver"] = function()
+					-- 	require('lspconfig').tsserver.setup({
+					-- 		on_attach = function(client, bufnr)
+					-- 			require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+					-- 		end
+					-- 	})
+					-- end
 
 				}
 			}
@@ -235,5 +235,11 @@ return {
 			}
 			vim.keymap.set({ "v", "n" }, "gf", require("actions-preview").code_actions)
 		end,
+	},
+
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		opts = {},
 	}
 }
