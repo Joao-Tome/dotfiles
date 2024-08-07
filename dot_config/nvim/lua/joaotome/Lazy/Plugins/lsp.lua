@@ -26,6 +26,7 @@ return {
 						go = { 'goimports-reviser', 'gofumpt' },
 						-- Use a sub-list to run only the first available formatter
 						javascript = { { "prettierd", "prettier" } },
+						typescript = { { "prettierd", "prettier" } },
 						json = { 'fixjson' }
 					}
 				}
@@ -46,7 +47,9 @@ return {
 				automatic_installation = false,
 				handlers = {
 					function(server_name)
-						require("lspconfig")[server_name].setup({})
+						if server_name ~= "tsserver" then
+							require("lspconfig")[server_name].setup({})
+						end
 					end,
 					["lua_ls"] = function()
 						local lspconfig = require("lspconfig")
