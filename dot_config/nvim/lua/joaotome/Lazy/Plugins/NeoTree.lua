@@ -2,6 +2,7 @@ return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
+		enabled = false,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -290,6 +291,7 @@ return {
 				{ text = "󰌵", texthl = "DiagnosticSignHint" })
 			require('transparent').clear_prefix('NeoTree')
 			vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
+			vim.keymap.set("n", "<leader>pv", '<cmd>Neotree current<CR>', {})
 		end,
 	},
 }
