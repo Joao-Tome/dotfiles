@@ -183,7 +183,7 @@ return {
 						folder_arrow = true,
 						git = true,
 						modified = true,
-						hidden = false,
+						hidden = true,
 						diagnostics = true,
 						bookmarks = true,
 					},
@@ -272,7 +272,7 @@ return {
 			},
 			live_filter = {
 				prefix = "[FILTER]: ",
-				always_show_folders = true,
+				always_show_folders = false,
 			},
 			filesystem_watchers = {
 				enable = true,
@@ -287,8 +287,8 @@ return {
 					restrict_above_cwd = false,
 				},
 				expand_all = {
-					max_folder_discovery = 300,
-					exclude = {},
+					max_folder_discovery = 1000,
+					exclude = { ".git" },
 				},
 				file_popup = {
 					open_win_config = {

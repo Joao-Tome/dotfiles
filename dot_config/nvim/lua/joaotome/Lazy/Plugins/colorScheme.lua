@@ -52,7 +52,7 @@ return {
 		priority = 1000,
 		config = function()
 			require("catppuccin").setup({
-				flavour = "auto", -- latte, frappe, macchiato, mocha
+				flavour = "mocha", -- latte, frappe, macchiato, mocha
 				background = { -- :h background
 					light = "latte",
 					dark = "mocha",
@@ -83,7 +83,11 @@ return {
 					operators = {},
 					-- miscs = {}, -- Uncomment to turn off hard-coded styles
 				},
-				color_overrides = {},
+				color_overrides = {
+					mocha = {
+						surface1 = "#666666",
+					},
+				},
 				custom_highlights = {},
 				default_integrations = true,
 				integrations = {
