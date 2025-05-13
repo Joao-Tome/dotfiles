@@ -117,8 +117,7 @@ return {
 						vim.keymap.set("n", "<leader>D", require("telescope.builtin").lsp_type_definitions)
 						vim.keymap.set("n", "<leader>ds", require("telescope.builtin").lsp_document_symbols)
 						vim.keymap.set("n", "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols)
-						vim.keymap.set("n", "<leader>rs", vim.lsp.buf.rename)
-						vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+						vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename)
 						vim.keymap.set("n", "K", vim.lsp.buf.hover)
 					end
 				}

@@ -5,6 +5,9 @@ return {
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
+	keys = {
+		{ "<leader>e", function() require("nvim-tree.api").tree.toggle({ path = vim.fn.getcwd(), find_file = true }) end, desc = "Open Tree Explorer" }
+	},
 	config = function()
 		local function my_on_attach(bufnr)
 			local api = require('nvim-tree.api')
@@ -363,6 +366,5 @@ return {
 				},
 			},
 		} -- END_DEFAULT_OPTS
-		vim.keymap.set("n", "<leader>pv", '<cmd>NvimTreeToggle<CR>', {})
 	end,
 }

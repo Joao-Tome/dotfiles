@@ -1,15 +1,8 @@
 return {
 	{
-		"folke/which-key.nvim",
-		{
-			"folke/neoconf.nvim",
-			cmd = "Neoconf"
-		}
-	},
-	{
 		"mbbill/undotree",
 		config = function()
-			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undo Tree" })
 		end
 	},
 	{ "nvim-tree/nvim-web-devicons" },
