@@ -118,9 +118,9 @@ fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export CPLUS_INCLUDE_PATH=/usr/include/c++/8:$CPLUS_INCLUDE_PATHexport CPLUS_INCLUDE_PATH=/usr/include/c++/8:$CPLUS_INCLUDE_PATHexport CPLUS_INCLUDE_PATH=/usr/include/c++/8:$CPLUS_INCLUDE_PATH
 
-theme = "$HOME/.config/oh-my-posh/theme/takuya.omp.json"
+THEME=$HOME/.config/oh-my-posh/theme/takuya.omp.json
 
-eval "$(oh-my-posh init bash --config $theme)"
+eval "$(oh-my-posh init bash --config $THEME)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
